@@ -1,5 +1,6 @@
 <!-- Shields -->
 [![Contributors][contributors-shield]][contributors-url]
+[![Stars][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![Repo Size][repo-size-shield]][repo-size-url]
 [![MIT License][license-shield]][license-url]
@@ -65,6 +66,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- Links -->
 [contributors-shield]: https://img.shields.io/github/contributors/DaHunterTime/InputHandler.svg?style=for-the-badge
 [contributors-url]: https://github.com/DaHunterTime/InputHandler/graphs/contributors
+[stars-shield]: https://img.shields.io/github/stars/DaHunterTime/InputHandler.svg?style=for-the-badge
+[stars-url]: https://github.com/DaHunterTime/InputHandler/stargazers
 [issues-shield]: https://img.shields.io/github/issues/DaHunterTime/InputHandler.svg?style=for-the-badge
 [issues-url]: https://github.com/DaHunterTime/InputHandler/issues
 [repo-size-shield]: https://img.shields.io/github/repo-size/DaHunterTime/InputHandler.svg?style=for-the-badge
