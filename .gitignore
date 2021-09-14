@@ -1,0 +1,23 @@
+# --------------------------------------------
+# Python
+# --------------------------------------------
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+*.idea
+*.DS_STORE
+
+# --------------------------------------------
+# Extras
+# --------------------------------------------
+
+.vscode/
+
+# TODO list and posible future features
+notes.txt
+
+# Testing folder
+testing/
