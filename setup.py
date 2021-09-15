@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="inputhandler",
-    version="1.0",
+    version="1.0.1",
     author="DaHunterTime",
     description="A (basic) cross-platform python input handler",
     url="https://github.com/DaHunterTime/InputHandler",
