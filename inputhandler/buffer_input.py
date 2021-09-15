@@ -18,6 +18,7 @@ class Input:
             if char == "\r":
                 break
             elif char == "\x03":
+                self._buffer.clear()
                 raise KeyboardInterrupt
 
             if self._system == "Windows":
