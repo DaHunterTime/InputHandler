@@ -7,6 +7,7 @@ setup(
     version="1.0.1",
     author="DaHunterTime",
     description="A (basic) cross-platform python input handler",
+    license="MIT",
     url="https://github.com/DaHunterTime/InputHandler",
     project_urls={
         "Bug Tracker": "https://github.com/DaHunterTime/InputHandler/issues",
