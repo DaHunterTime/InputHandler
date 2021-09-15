@@ -41,11 +41,48 @@ TODO: Add project description
 <!-- Getting Started -->
 ## Getting Started
 
-TODO: Add instructions
+For the manual installation you must have `setuptools` installed.
+
+Python usually comes with `setuptools`, but if yours does not, then run
+    ```sh
+    pip install --upgrade setuptools
+    ```
+
+Then clone the repository
+    ```sh
+    git clone https://github.com/DaHunterTime/InputHandler
+    ```
+
+And move to the newly cloned folder
+    ```
+    cd InputHandler
+    ```
 
 ### Installation
 
-TODO: Add installation instructions
+Manual installation:
+
+For a manual installation you can use any of the following options.
+
+1. Using python (not recommended)
+    * Run the following line in your terminal
+      ```sh
+      python setup.py install
+      ```
+    * To uninstall you must remove the files manually
+2. Using pip (recommended)
+    * Run the following line in your terminal
+      ```sh
+      pip install .
+      ```
+    * To uninstall run
+      ```sh
+      pip uninstall inputhandler
+      ```
+
+Pip installation:
+
+Installation using pip without downloading/cloning the repo is currently not supported.
 
 <!-- Usage Examples -->
 ## Usage
