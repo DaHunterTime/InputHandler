@@ -36,7 +36,10 @@
 <!-- About the Project -->
 ## About The Project
 
-TODO: Add project description
+This project aims to implement a finer control for the input, especially when in use with threads.
+
+It was partially inspired by aiming to be a cross-platform alternative to the `get_line_buffer` 
+function from the Unix only python standard library `readline`.
 
 <!-- Getting Started -->
 ## Getting Started
@@ -70,24 +73,52 @@ For a manual installation you can use any of the following options.
       python setup.py install
       ```
     * To uninstall you must remove the files manually
-2. Using pip (recommended)
+2. Using pip
     * Run the following line in your terminal
       ```sh
       pip install .
       ```
     * To uninstall run
       ```sh
-      pip uninstall inputhandler
+      pip uninstall pyinputhandler
       ```
 
 Pip installation:
 
-Installation using pip without downloading/cloning the repo is currently not supported.
+* To install run
+  ```sh
+  pip install pyinputhandler
+  ```
+* To uninstall run
+  ```sh
+  pip uninstall pyinputhandler
+  ```
 
 <!-- Usage Examples -->
 ## Usage
 
-TODO: Add usage examples
+To begin with, we can import the library with
+  ```python
+  import inputhandler
+  ```
+
+Or you can import specific things like `buffer_input`
+  ```python
+  from inputhandler import buffer_input
+  ```
+
+We can use the `try_input` like
+  ```python
+  from inputhandler import try_input
+
+  n = try_input("Enter an integer: ", cast=int, default=0)
+  ```
+
+The previous code will prompt the user for an integer, process the input and then turn it into an 
+`int` if it can, otherwise it returns the specified default value.
+
+For more uses and tests you can execute the specific test file from `tests` or run `python test.py` 
+to select which test to run.
 
 <!-- License -->
 ## License
