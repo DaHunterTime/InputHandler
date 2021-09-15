@@ -44,19 +44,19 @@ TODO: Add project description
 For the manual installation you must have `setuptools` installed.
 
 Python usually comes with `setuptools`, but if yours does not, then run
-    ```sh
-    pip install --upgrade setuptools
-    ```
+  ```sh
+  pip install --upgrade setuptools
+  ```
 
 Then clone the repository
-    ```sh
-    git clone https://github.com/DaHunterTime/InputHandler
-    ```
+  ```sh
+  git clone https://github.com/DaHunterTime/InputHandler
+  ```
 
 And move to the newly cloned folder
-    ```
-    cd InputHandler
-    ```
+  ```sh
+  cd InputHandler
+  ```
 
 ### Installation
 
