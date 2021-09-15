@@ -15,4 +15,5 @@ if __name__ == "__main__":
     if func is None:
         print(f"There is no test function '{option}'")
     else:
+        print(f"{option}:")
         func()
