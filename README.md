@@ -6,7 +6,7 @@
 [![MIT License][license-shield]][license-url]
 
 <h1 align="center">InputHandler</h1>
-<h3 align="center">A (basic) python input handler</h3>
+<h3 align="center">A (basic) cross-platform python input handler</h3>
 
 <!-- Table of Contents -->
 <details open="open">
