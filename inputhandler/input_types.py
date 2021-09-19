@@ -20,7 +20,9 @@ class TryInput(Input):
 
 class ThreadSafeInput(Input):
     _input_lock = threading.Lock()
+    _history = []
     _buffer = deque()
+    _right_buffer = deque()
 
     def __init__(self):
         super().__init__()
@@ -32,7 +34,9 @@ class ThreadSafeInput(Input):
 
 class ThreadSafeTryInput(TryInput):
     _input_lock = ThreadSafeInput._input_lock
+    _history = ThreadSafeInput._history
     _buffer = ThreadSafeInput._buffer
+    _right_buffer = ThreadSafeInput._right_buffer
 
     def __init__(self):
         super().__init__()
