@@ -66,13 +66,12 @@ class Input:
                     direction = self._directions.get(getch(), None)
 
                     if direction == Key.LEFT:
+                        if len(self._buffer) + len(self._right_buffer) == self._cursor_left:
+                            continue
+
                         windll.kernel32.GetConsoleScreenBufferInfo(self._handle,
                                                                    byref(self._console_info))
                         pos = self._console_info.dwCursorPosition
-
-                        if pos.X == 0:
-                            continue
-
                         new = wintypes._COORD(pos.X - 1, pos.Y)
                         windll.kernel32.SetConsoleCursorPosition(self._handle, new)
                         self._cursor_left += 1
