@@ -128,8 +128,12 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- Acknowledgements -->
 ## Acknowledgements
 
+None of the following are associated with the project in any way. They are mentioned as a source of 
+learning and inspiration for parts of this project.
+
 * [README Template](https://github.com/othneildrew/Best-README-Template)
 * [Cross-Platform getch() for Python](https://gist.github.com/jfktrey/8928865)
+* [Windows Cursor Position](https://github.com/tartley/colorama/blob/master/colorama/win32.py)
 
 <!-- Links -->
 [contributors-shield]: https://img.shields.io/github/contributors/DaHunterTime/InputHandler.svg?style=for-the-badge
