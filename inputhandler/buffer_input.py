@@ -3,6 +3,7 @@ from collections import deque
 from enum import Enum, unique
 
 from .getwch import getwch
+from . import constant
 
 if platform.system() == "Windows":
     # Code to move the cursor on Windows inspired by colorama by tartley
@@ -45,6 +46,9 @@ class Input:
             print(prompt, end="", flush=True)
 
         while True:
+            if constant.CURRENT_INPUT is not self:
+                constant.CURRENT_INPUT = self
+
             char = getwch()
 
             if char == "\r":
@@ -204,7 +208,13 @@ class Input:
 
     @classmethod
     def get_input_buffer(cls):
-        return cls._buffer.copy() + cls._right_buffer.copy()
+        if not isinstance(constant.CURRENT_INPUT, Input) and constant.CURRENT_INPUT is not None:
+            raise TypeError("the global constant 'CURRENT_INPUT' was reassigned")
+        elif constant.CURRENT_INPUT is None:
+            return cls._buffer.copy() + cls._right_buffer.copy()
+        else:
+            move = [] if cls._system == "Windows" else [constant.CURRENT_INPUT._move_cursor()]
+            return cls._buffer.copy() + cls._right_buffer.copy() + deque(move)
 
 
 buffer_input = Input()
