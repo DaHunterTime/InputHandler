@@ -2,7 +2,7 @@ import platform
 from collections import deque
 from enum import Enum, unique
 
-from .getch import getch
+from .getwch import getwch
 
 if platform.system() == "Windows":
     # Code to move the cursor on Windows inspired by colorama by tartley
@@ -45,7 +45,7 @@ class Input:
             print(prompt, end="", flush=True)
 
         while True:
-            char = getch()
+            char = getwch()
 
             if char == "\r":
                 break
@@ -63,7 +63,7 @@ class Input:
                         print(out, end="", flush=True)
                         self._move_cursor()
                 elif char == "\x00":
-                    direction = self._directions.get(getch(), None)
+                    direction = self._directions.get(getwch(), None)
 
                     if direction == Key.LEFT:
                         if len(self._buffer) + len(self._right_buffer) == self._cursor_left:
@@ -127,8 +127,8 @@ class Input:
                         out += self._move_cursor()
                         print(out, end="", flush=True)
                 elif char == "\x1b":
-                    getch()
-                    direction = self._directions.get(getch(), None)
+                    getwch()
+                    direction = self._directions.get(getwch(), None)
 
                     if direction == Key.LEFT:
                         if len(self._buffer) + len(self._right_buffer) == self._cursor_left:

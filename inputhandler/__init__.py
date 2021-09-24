@@ -1,6 +1,6 @@
 import threading
 
-from .getch import getch
+from .getwch import getwch
 from .buffer_input import buffer_input
 from .input_types import try_input, safe_input, safe_try_input
 from . import input_types
