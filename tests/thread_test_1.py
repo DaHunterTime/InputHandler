@@ -1,7 +1,7 @@
 import threading
 import time
 
-from inputhandler import buffer_input, get_input_buffer
+from inputhandler import buffer_input, get_input_buffer, fix_cursor
 
 
 def test():
@@ -10,6 +10,7 @@ def test():
         buffer = get_input_buffer()
         out = "\r" + " "*len(buffer) + "\rHELLO!\n\r" + "".join(buffer)
         print(out, end="", flush=True)
+        fix_cursor()  # This call is not needed in unix, but is here for Windows compatibility
 
 
 def main():
