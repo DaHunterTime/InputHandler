@@ -1,4 +1,7 @@
+from __future__ import annotations
+
 import platform
+
 from collections import deque
 from enum import Enum, unique
 
@@ -25,9 +28,17 @@ class Key(Enum):
 
 
 class Input:
-    _history = []
-    _buffer = deque()
-    _right_buffer = deque()
+    '''
+    # Input
+
+    A buffered input class.
+
+    It serves as the base class for all the other input classes.
+    '''
+
+    _history: list[str] = []
+    _buffer: deque[str] = deque()
+    _right_buffer: deque[str] = deque()
     _system = platform.system()
 
     def __init__(self):
@@ -41,7 +52,27 @@ class Input:
         self._cursor_left = 0
         self._search_index = 0
 
-    def __call__(self, prompt=""):
+    def __call__(self, prompt: str = "") -> str:
+        '''
+        The `buffer_input()` reads the user input and saves it in a (shared between input types)
+        buffer while the user is typing.
+
+        Call `buffer_input.get_input_buffer()` to get the current buffer.
+
+        ## Arguments
+
+        prompt: str [optional] = what to print before asking for input. default value = "".
+
+        string: str [return] = returns a string with the user typed input.
+
+        ## Usage
+
+        e.g.
+        ```python
+          value = buffer_input("Enter a number: ")
+        ```
+        '''
+
         if prompt != "":
             print(prompt, end="", flush=True)
 
@@ -193,7 +224,7 @@ class Input:
         self._search_index = 0
         return string
 
-    def _move_cursor(self):
+    def _move_cursor(self) -> str:
         if self._cursor_left > 0:
             if self._system == "Windows":
                 windll.kernel32.GetConsoleScreenBufferInfo(self._handle, byref(self._console_info))
@@ -207,7 +238,17 @@ class Input:
             return ""
 
     @classmethod
-    def get_input_buffer(cls):
+    def get_input_buffer(cls) -> deque[str]:
+        '''
+        Get the currently saved (shared between input types) buffer.
+
+        Note: the buffer is not shared between thread safe inputs and normal inputs.
+
+        ## Arguments
+
+        buffer: deque[str] [return] = returns a copy of the buffer as a string deque.
+        '''
+
         if not isinstance(constant.CURRENT_INPUT, Input) and constant.CURRENT_INPUT is not None:
             raise TypeError("the global constant 'CURRENT_INPUT' was reassigned")
         elif constant.CURRENT_INPUT is None:

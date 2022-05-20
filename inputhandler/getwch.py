@@ -5,14 +5,26 @@ import platform
 if platform.system() == "Windows":
     import msvcrt
 
-    def getwch():
+    def getwch() -> str:
+        '''
+        Cross platform version of `getwch()`.
+
+        Wide variant of `getch()`, returning a Unicode value.
+        '''
+
         return msvcrt.getwch()
 else:
     import tty
     import termios
     import sys
 
-    def getwch():
+    def getwch() -> str:
+        '''
+        Cross platform version of `getwch()`.
+
+        Wide variant of `getch()`, returning a Unicode value.
+        '''
+
         fd = sys.stdin.fileno()
         old = termios.tcgetattr(fd)
 
