@@ -1,4 +1,3 @@
-from os import name
 from setuptools import setup, find_packages
 
 
