@@ -6,7 +6,7 @@ with open("README.md", "r") as readme:
 
 setup(
     name="pyinputhandler",
-    version="1.2.2",
+    version="1.3.0",
     author="DaHunterTime",
     description="A (basic) cross-platform python input handler",
     long_description=description,

@@ -5,7 +5,7 @@ import platform
 from collections import deque
 from enum import Enum, unique
 
-from .getwch import getwch
+from .stdin import getwch, try_read
 from . import constant
 
 if platform.system() == "Windows":
@@ -97,8 +97,16 @@ class Input:
                                + "".join(self._buffer + self._right_buffer))
                         print(out, end="", flush=True)
                         self._move_cursor()
-                elif char == "\x00":
-                    direction = self._directions.get(getwch(), None)
+                elif char == "\x00" or char == "à":
+                    char = try_read() if char == "à" else getwch()
+
+                    if not char:
+                        self._buffer.append("à")
+                        print("à" + "".join(self._right_buffer), end="", flush=True)
+                        self._move_cursor()
+                        continue
+
+                    direction = self._directions.get(char, None)
 
                     if direction == Key.LEFT:
                         if len(self._buffer) + len(self._right_buffer) == self._cursor_left:
@@ -162,8 +170,12 @@ class Input:
                         out += self._move_cursor()
                         print(out, end="", flush=True)
                 elif char == "\x1b":
-                    getwch()
-                    direction = self._directions.get(getwch(), None)
+                    char = try_read()
+
+                    if not char:
+                        continue
+
+                    direction = self._directions.get(char, None)
 
                     if direction == Key.LEFT:
                         if len(self._buffer) + len(self._right_buffer) == self._cursor_left:

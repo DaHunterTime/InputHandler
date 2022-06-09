@@ -32,7 +32,7 @@ import threading
 
 from collections import deque
 
-from .getwch import getwch
+from .stdin import getwch, try_read
 from .buffer_input import Input, buffer_input
 from .input_types import try_input, safe_input, safe_try_input
 from . import input_types
